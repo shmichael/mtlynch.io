@@ -25,3 +25,9 @@ Tried to create `.envrc` and `flake.nix`
 Kept getting file not found.
 
 Turned out I had to delete my flake.nix and run `flake init`.
+
+Works until static linking, got to
+
+https://nixos.wiki/wiki/Go
+
+Hard because a lot of guides expect you to make Nix your build system rather than an optional tool for creating a dev environment. Don't want to jump full on into Nix.
