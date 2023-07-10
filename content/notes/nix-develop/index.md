@@ -18,6 +18,8 @@ Install was fine, but then the tutorials were for starting a project from scratc
 
 No guidance on adding flox to an existing project. No template for Go or Node.js.
 
+### direnv
+
 First it didn't recognize use_flake, turned out direnv was too old (0.25).
 
 Tried to create `.envrc` and `flake.nix`
