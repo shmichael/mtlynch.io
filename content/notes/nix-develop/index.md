@@ -56,6 +56,8 @@ https://www.nixhub.io/packages/sqlfluff
 
 Gotcha: Experimental features
 
+error: experimental Nix feature 'nix-command' is disabled; use '--extra-experimental-features nix-command' to override
+
 ### direnv
 
 First it didn't recognize use_flake, turned out direnv was too old (0.25).
@@ -100,4 +102,22 @@ https://github.com/mtlynch/whatgotdone/commit/6ec8fa0da9bad8e1e35ec7ccd0b5cc6c08
 
 https://app.circleci.com/pipelines/github/mtlynch/whatgotdone/2232/workflows/d9d01847-9a44-43f9-9f21-c139573bf481
 
-All jobs hung
+All jobs hung - fix was to use `--command` syntax for `nix develop`
+
+Jobs got slower, need to share the Nix environment across jobs.
+
+run-go-tests fails, similar to this
+
+https://github.com/golang/go/issues/44695#issuecomment-973685193
+
+Interestingly, only in one package
+
+import "C" in one handlers/parse .go file fixes it, but then it fails again on staticcheck
+
+```text
++ go install honnef.co/go/tools/cmd/staticcheck@v0.3.3
+# honnef.co/go/tools/cmd/staticcheck
+runtime.gcdata: missing Go type information for global symbol .dynsym: size 72
+```
+
+Fix is to add external
