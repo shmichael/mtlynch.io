@@ -46,6 +46,16 @@ Haven't tried it
 
 Claims it solves the specific versioning problem
 
+Tried it, but it totally abstracts away Nix, so can't use anything anymore.
+
+Couldn't figure out how to use nixhub because it gives different information from
+
+https://www.nixhub.io/packages/sqlfluff
+
+### nix develop
+
+Gotcha: Experimental features
+
 ### direnv
 
 First it didn't recognize use_flake, turned out direnv was too old (0.25).
@@ -75,3 +85,19 @@ not helpful: https://discourse.nixos.org/t/best-practice-for-pinning-version-of-
 Use devbox: https://github.com/NixOS/nixpkgs/issues/93327#issuecomment-1648276095
 
 https://news.ycombinator.com/item?id=28593823
+
+Finally made it click: https://gist.github.com/toraritte/62e53be9e6d88d8b6b97391eb3c6558b#22-pin-nixpkgs-in-a-nix-expression
+
+https://github.com/mtlynch/whatgotdone/pull/885/commits/be53555c6b2308b27d564927f7b09998125b508d
+
+Doesn't work, seems to ignore version+sha256 for sqlfluff, installs the wrong version.
+
+Gotcha: forgot to update the sha256
+
+### CircleCI
+
+https://github.com/mtlynch/whatgotdone/commit/6ec8fa0da9bad8e1e35ec7ccd0b5cc6c0853a625
+
+https://app.circleci.com/pipelines/github/mtlynch/whatgotdone/2232/workflows/d9d01847-9a44-43f9-9f21-c139573bf481
+
+All jobs hung
