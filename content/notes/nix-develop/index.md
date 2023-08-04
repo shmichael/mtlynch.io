@@ -121,3 +121,34 @@ runtime.gcdata: missing Go type information for global symbol .dynsym: size 72
 ```
 
 Fix is to add external
+
+---
+
+Caching `/nix/store` ends up being like 1 GB
+
+Docs say not to cache more than 500 MB
+
+But before I do anything, `/nix/store` is already:
+
+```bash
+$ du -s -h /nix/store
+766M    /nix/store
+```
+
+After `nix develop`:
+
+```bash
+$ du -h -s /nix/store
+3.7G    /nix/store
+```
+
+```bash
+nix-env --delete-generations old && nix-store --gc
+```
+
+After GC:
+
+```bash
+$ du -h -s /nix/store
+2.8G    /nix/store
+```
