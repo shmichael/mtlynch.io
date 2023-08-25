@@ -1,7 +1,6 @@
 ---
 title: "Nix Develop"
 date: 2023-07-07T21:30:28-04:00
-draft: true
 ---
 
 https://determinate.systems/posts/nix-direnv
@@ -23,11 +22,24 @@ $ direnv --version
 
 Guide not clear on how to create nix environment from scratch.
 
+### Old
+
 ```bash
 $ curl -sfL https://direnv.net/install.sh | bash
 
 echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 . ~/.bashrc
+```
+
+### Better
+
+```bash
+export bin_path=/opt/direnv
+sudo mkdir "${bin_path}"
+sudo chown "${USER}:${USER}" "${bin_path}"
+curl -sfL https://direnv.net/install.sh | bash
+echo 'export PATH=${PATH}:'"${bin_path}" >> ~/.bashrc
+echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 ```
 
 ## Flox?
@@ -66,7 +78,7 @@ Tried to create `.envrc` and `flake.nix`
 
 Kept getting file not found.
 
-Turned out I had to delete my flake.nix and run `flake init`.
+Turned out I had to delete my flake.nix and run `nix flake init`.
 
 Works until static linking, got to
 
@@ -151,4 +163,33 @@ After GC:
 ```bash
 $ du -h -s /nix/store
 2.8G    /nix/store
+```
+
+### Python
+
+Can't figure out how to do virtualenv correctly. Best I can approximate is adding the source line.
+
+Gotcha: When I tried source venv/bin/activae, I kept getting confused because it would report a different Python version, but it was getting the venv Python.
+
+Gotcha: six can't import
+
+```text
+ImportError while importing test module '/home/mike/personal-ledger/importers/schwab/schwab_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/nix/store/7bp44csmx928w534nn76icz2pcvlfcgx-python3-3.11.3/lib/python3.11/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+importers/schwab/__init__.py:4: in <module>
+    import dateutil.parser
+venv/lib/python3.11/site-packages/dateutil/parser/__init__.py:2: in <module>
+    from ._parser import parse, parser, parserinfo, ParserError
+venv/lib/python3.11/site-packages/dateutil/parser/_parser.py:42: in <module>
+    import six
+E   ModuleNotFoundError: No module named 'six'
+```
+
+Fixed with:
+
+```bash
+pip install --ignore-installed six
 ```
