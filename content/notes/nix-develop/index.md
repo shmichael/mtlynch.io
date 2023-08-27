@@ -34,12 +34,22 @@ echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 ### Better
 
 ```bash
-export bin_path=/opt/direnv
-sudo mkdir "${bin_path}"
-sudo chown "${USER}:${USER}" "${bin_path}"
-curl -sfL https://direnv.net/install.sh | bash
-echo 'export PATH=${PATH}:'"${bin_path}" >> ~/.bashrc
+export DIRENV_PATH=/opt/direnv
+sudo mkdir -p "${DIRENV_PATH}"
+sudo chown "${USER}:${USER}" "${DIRENV_PATH}"
+pushd "${DIRENV_PATH}"
+
+wget https://github.com/direnv/direnv/releases/download/v2.32.3/direnv.linux-amd64
+mv direnv.linux-amd64 ./direnv
+chmod +x ./direnv
+echo 'export PATH="${PATH}:'"${DIRENV_PATH}\"" >> ~/.bashrc
 echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+popd
+
+# old
+#curl -sfL https://direnv.net/install.sh | bash
+
+
 ```
 
 ## Flox?
