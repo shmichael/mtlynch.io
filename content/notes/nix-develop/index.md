@@ -24,6 +24,8 @@ Guide not clear on how to create nix environment from scratch.
 
 ### Old
 
+Official instructions don't work. Might be a VS code thing, but direnv isn't in my PATH.
+
 ```bash
 $ curl -sfL https://direnv.net/install.sh | bash
 
