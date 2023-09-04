@@ -58,6 +58,10 @@ popd
 . ~/.bashrc
 ```
 
+```bash
+echo 'use flake .' > .envrc
+```
+
 ## Flox?
 
 tried floxdev.com
