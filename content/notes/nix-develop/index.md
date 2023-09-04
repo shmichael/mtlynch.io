@@ -3,6 +3,14 @@ title: "Nix Develop"
 date: 2023-07-07T21:30:28-04:00
 ---
 
+## Install nix
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+## Install direnv
+
 https://determinate.systems/posts/nix-direnv
 
 Started here.
@@ -47,11 +55,7 @@ chmod +x ./direnv
 echo 'export PATH="${PATH}:'"${DIRENV_PATH}\"" >> ~/.bashrc
 echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 popd
-
-# old
-#curl -sfL https://direnv.net/install.sh | bash
-
-
+. ~/.bashrc
 ```
 
 ## Flox?
@@ -119,6 +123,8 @@ https://github.com/mtlynch/whatgotdone/pull/885/commits/be53555c6b2308b27d564927
 Doesn't work, seems to ignore version+sha256 for sqlfluff, installs the wrong version.
 
 Gotcha: forgot to update the sha256
+
+Better version: https://www.nixhub.io/
 
 ### CircleCI
 
