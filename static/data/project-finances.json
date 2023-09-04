@@ -136,6 +136,14 @@
     "2023-05": {
       "profit": 24034.74,
       "totalRevenue": 92457.9
+    },
+    "2023-06": {
+      "profit": 30907.55,
+      "totalRevenue": 93068.81
+    },
+    "2023-07": {
+      "profit": 26359.62,
+      "totalRevenue": 83703.24
     }
   },
   "htfp": {
@@ -227,6 +235,12 @@
       "totalRevenue": 80.4
     },
     "2023-05": {
+      "totalRevenue": 35.1
+    },
+    "2023-06": {
+      "totalRevenue": 88.2
+    },
+    "2023-07": {
       "totalRevenue": 35.1
     }
   },
@@ -388,6 +402,12 @@
       "totalRevenue": 117.49
     },
     "2023-05": {
+      "totalRevenue": 41.54
+    },
+    "2023-06": {
+      "totalRevenue": 41.54
+    },
+    "2023-07": {
       "totalRevenue": 41.54
     }
   },
@@ -568,6 +588,12 @@
     },
     "2023-05": {
       "totalRevenue": 94.39
+    },
+    "2023-06": {
+      "totalRevenue": 118.99
+    },
+    "2023-07": {
+      "totalRevenue": 234.67
     }
   }
 }
