@@ -60,6 +60,7 @@ popd
 
 ```bash
 echo 'use flake .' > .envrc
+ech '.direnv' >> .gitignore
 ```
 
 ## Flox?
