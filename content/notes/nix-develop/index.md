@@ -63,6 +63,12 @@ echo 'use flake .' > .envrc
 ech '.direnv' >> .gitignore
 ```
 
+Gotcha: If `GOROOT` is set, unset it or you'll get:
+
+```text
+compile: version "go1.18.4" does not match go tool version "go1.19.6"
+```
+
 ## Flox?
 
 tried floxdev.com
