@@ -137,6 +137,44 @@ Gotcha: forgot to update the sha256
 
 Better version: https://www.nixhub.io/
 
+Can't figure out Go:
+
+```
+Version 1.21.0
+
+Nixpkgs Reference
+a63a64b593dcf2fe05f7c5d666eb395950f36bc9 # go_1_21
+
+Last updated 6 days ago
+
+Install with Devbox
+devbox add go@1.21.0
+
+Version 1.20.7
+
+Nixpkgs Reference
+a63a64b593dcf2fe05f7c5d666eb395950f36bc9 # go
+
+Last updated 6 days ago
+
+Install with Devbox
+devbox add go@1.20.7
+
+Version 1.20.6
+
+Nixpkgs Reference
+4107024ef4d9f637b568296f40a2ba0f62b13437 # go
+
+Last updated 17 days ago
+
+Install with Devbox
+devbox add go@1.20.6
+```
+
+If I specify the hash, it installs the wrong version.
+
+When updating the target, need to clear the hash.
+
 ### CircleCI
 
 https://github.com/mtlynch/whatgotdone/commit/6ec8fa0da9bad8e1e35ec7ccd0b5cc6c0853a625
